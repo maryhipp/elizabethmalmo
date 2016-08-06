@@ -1,0 +1,168 @@
+// Font Variables
+.headline {	font-family: 'Open Sans', arial; font-weight: 400; font-style: normal;}
+.detail {	font-family: 'Comfortaa'; font-weight: 400; font-style: normal;}
+.regular {	font-family: 'Source Sans Pro', arial; font-weight: 400; font-style: normal;}
+
+// Color Variables
+@primary: #5c656c;
+@turq: #6EC9B3;
+
+// Width Variables
+.mid-cont{ width: 85%; margin: 0 auto; max-width: 1255px;
+	@media @tablet {	width: 90%;}
+}
+.skinny-cont {	max-width: 600px;width: 85%; margin: 0 auto; }
+
+
+// Media Queries
+@tablet: ~"only screen and (max-width: 800px)";
+@phone: ~"only screen and (max-width: 630px)";
+
+.desktop {	display: block;
+	@media @tablet {display: none}
+}
+.mobile {	display: none;
+	@media @tablet {	display: block;}
+}
+
+// Mix-ins
+.transition(@transition) {-webkit-transition:@transition;-moz-transition:@transition;-ms-transition:@transition;-o-transition:@transition; }
+.transform(@string){transform:@string;-webkit-transform:@string;-moz-transform:@string;-ms-transform:@string;-o-transform:@string;}
+.transform-origin(@string) {-webkit-transform-origin:@string; -moz-transform-origin: @string; -ms-transform-origin: @string; transform-origin: @string;}
+.browser-appearance(@string) {-webkit-appearance: @string;-moz-appearance:@string;appearance:@string;}
+
+// Input & Link Styles
+a {	.transition(0.2s all ease); color: @turq; text-decoration: none;
+	&:hover {	opacity: 0.6;}
+}
+.button, button, input[type="submit"] {	.browser-appearance(none); border: 0; padding: 15px 30px;border-radius: 0; color: white; background-color: @turq; .detail;font-size: 11px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer;.transition(0.2s all ease);
+	&:hover {	background-color: @primary;}
+}
+input[type='text'], input[type="email"], textarea {	.browser-appearance(none); border-radius: 0; border: 4px double @primary; padding: 10px; background: white; width: 100%; .regular; font-size: 18px;}
+textarea {	resize: none;}
+label,.wpcf7 p {	.detail; font-size: 11px; letter-spacing: 2px;  text-transform: uppercase; }
+.wpcf7 input, .wpcf7 textarea {	margin-top: 10px; margin-bottom: 15px;}
+.wpcf7 input[type="submit"] {	margin: 0;}
+
+// Heading Styles
+// h1 {	.detail;  text-align: center; margin: 40px 0; text-transform: uppercase;; letter-spacing: 1px;}
+// h1 {	.headline;}
+h1, h2 {	.headline; text-align: center; }
+h1 {	margin: 40px 0;}
+h3 {	.headline;}
+
+body {	width: 100%; height: 100%;overflow-x: hidden; .regular; color: @primary; max-width: 1600px; margin: 0 auto;}
+body * {  box-sizing: border-box;}
+img {	max-width: 100%; height: auto;}
+.main-container {	position: relative; margin: 0 0 20px 0; }
+table {	border-collapse: collapse;}
+*:focus { outline:none;}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0; }
+ul {	margin: 0;}
+.table {	display: table; vertical-align: middle; width: 100%;}
+.table-cell {	display: table-cell; vertical-align: middle;}
+.row {	display: table-row;}
+.center {	text-align: center;}
+.right {	text-align: right;}
+.left {	text-align: left;}
+
+
+header.table { padding: 20px 5%;border-bottom: 4px double @primary; 
+	.logo {	max-width: 400px; display: block; text-align: center; font-size: 20px; color: @primary;
+		img {	width: 90%; margin: 0 auto;}
+		@media @tablet {	margin: 20px auto 25px;}
+	}
+	h1  {	.headline; text-transform: none; color: @turq; font-size: 30px; margin: 20px auto;;
+		a:hover {	opacity: 1;}
+	}
+	ul {	display: table; width: 100%;}
+	li {	list-style: none; display: table-cell;.detail; font-size: 11px; letter-spacing: 2px; .center; text-transform: uppercase; 
+		a {	color: @primary;}
+	}
+	.table-cell {
+		@media @tablet {	display: block; text-align: center;}
+	}
+}
+
+footer { width: 100%;background: @turq; padding: 20px 0;
+	.table {	.mid-cont; color: white;}
+	a {	color: white; font-size: 22px; }
+	.social a {	display: inline-block; vertical-align: top; margin: 0 10px;}
+	.copyright {.detail; font-size: 11px; letter-spacing: 2px;  text-transform: uppercase; 	}
+	.copyright, .social {
+		@media @phone {	display: block; text-align: center; padding: 10px 0;}
+	}
+}
+
+.page-generic {	margin-bottom: 40px;
+	p {	font-size: 20px;}
+}
+
+.content.table {
+	.table-cell {	width: 50%; vertical-align: top; background-repeat: no-repeat; background-size: cover; background-position: 50% 50%;
+		&:first-child {	border-right: 25px solid white;
+			@media @tablet {	border-right: 0; height: 300px; margin-bottom: 20px;}
+			@media @phone {	height: 150px;}
+		}
+		&:last-child {	padding-left: 25px;
+			@media @tablet {	padding-left: 0;}
+		}
+		@media @tablet {	width: 100%; display: block;}
+	}
+}
+
+
+#instafeed { 
+	a {	display: inline-block; width: 31%; margin-right: 2%; margin-bottom:25px; vertical-align: top; position: relative; border: 2px solid @turq; padding: 20px;
+		@media @tablet {	width: 48%;}
+		@media @phone {	width: 100%; margin-right: 0;}
+		&:hover {	opacity:0.8;
+			.overlay {	opacity: 1;}
+		}
+	}
+	img {	display: block;}
+	.caption {	color:  @primary; font-size: 14px; margin-top: 10px;}
+	
+}
+
+
+.slider {  position: relative;
+	li {	width: 100%; height: 100%; background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; }
+}
+
+
+.project {	display: inline-table; width: 48%; margin-right: 3%; position: relative; margin-bottom: 40px; padding: 100px 5%; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat; .transition(0.2s all ease); vertical-align: top;
+	&:nth-child(2n+1) {	margin-right: 0;}
+	&:before {	content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.5); outline: 6px double @turq; outline-offset: -20px; .transition(0.2s all ease);}
+	h3 {	position: relative; z-index: 5; color: @primary; text-align: center; font-size: 36px; text-transform: uppercase; .transition(0.2s all ease);}
+	@media @phone {	display: block; width: 100%; margin-right: 0;}
+	&:hover { opacity: 1;
+		&:before { opacity: 0;}
+		h3 {	opacity: 0;}
+	}
+
+}
+
+.masonry-container {	margin-bottom: 40px;}
+.masonry-item {	display: inline-block; width: 31%; margin-right: 2%; margin-bottom: 20px;
+	&:nth-child(3n) {	margin-right: 0;
+		@media @tablet {	margin-right: 2%;}
+	}
+	&:nth-child(2n) {
+		@media @tablet {	margin-right: 0;}
+	}
+	@media @tablet {	width: 48%;}
+	
+}
+
+.fancybox  img {	display: block;}
+.fancybox-title {	.regular;}
+.fancybox-skin {	border-radius: 0;}
+.fancybox-title-inside-wrap {	padding-top: 0;
+	p {	padding: 10px 20px; margin: 0;}
+}
+
+
+
+
+
